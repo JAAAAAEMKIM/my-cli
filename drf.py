@@ -1,6 +1,7 @@
 import argparse
 import os
 from component.component import component
+from vue_converter.vue_converter import convert_into_react
 
 def container():
   pass
@@ -27,6 +28,8 @@ if __name__ == '__main__':
     container()
   elif args.type == 'redux':
     redux()
+  elif args.type == 'vue':
+    convert_into_react()
   else:
     raise ValueError('Invalid type')
 
