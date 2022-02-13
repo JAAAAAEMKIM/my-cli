@@ -12,8 +12,7 @@ PATH_TO_DOORAY_PROJECT = (Path.home() / 'Projects/was-front-react')
 PATH_TO_SERVICES = PATH_TO_DOORAY_PROJECT / '_services/main-services/src/services'
 print(PATH_TO_SERVICES)
 
-def component(path):
-  print()
+def component():
   current_path = PATH_TO_SERVICES
   service = questionary.select(
       "select services:",
@@ -46,21 +45,12 @@ def component(path):
   full_name_token = [service, target_grid] + tokens
   full_name_pascal = ''.join(map(lambda x: x.title(), full_name_token))
 
-  print('fullpath', current_path.as_posix())
-  print(full_name_pascal)
-
-  # TODO: y/N style
-
   component_path = current_path / f"{full_name_pascal}.tsx"
   style_path = current_path / f"{full_name_pascal}.styles.ts"
   story_path = current_path / f"{full_name_pascal}.stories.tsx"
   test_path = current_path / f"{full_name_pascal}.test.tsx"
   
   map(lambda path: path.touch(), [component_path, style_path, story_path, test_path])
-  
-  print(component_path.as_posix())
-
-  # TODO: props도 받기
 
   with component_path.open(mode='a') as f:
     f.write(component_template(full_name_pascal))

@@ -1,10 +1,8 @@
 import argparse
 import os
 from component.component import component
+from container.container import container
 from vue_converter.vue_converter import convert_into_react
-
-def container():
-  pass
 
 def redux():
   pass
@@ -15,7 +13,6 @@ parser.add_argument("-src",
                   help="path to some folder",
                   type=os.path.abspath,
                   default='./')
-
 parser.add_argument("type",
                   help="What to do",
                   default='component')
@@ -23,7 +20,7 @@ parser.add_argument("type",
 if __name__ == '__main__':
   args = parser.parse_args()
   if args.type == 'component':
-    component(args.src)
+    component()
   elif args.type == 'container':
     container()
   elif args.type == 'redux':

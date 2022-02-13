@@ -2,7 +2,7 @@
 
 cd ~/Projects/blog/dooray-react-frontend-cli
 
-pipenv run python drf.py $1
+pipenv run python drf.py $1 $2
 
 
 
